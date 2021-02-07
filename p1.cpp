@@ -1,6 +1,7 @@
 #include<iostream>
 #include<algorithm>
 #include<conio.h>
+#include<windows.h>
 using namespace std;
 bool gameOver;
 const int width = 20;
@@ -122,6 +123,11 @@ void Logic(){
 	if(x>width || x<0 || y>height || y<0){
 		gameOver=true;
 	}
+	for(int i=0;i<nTail;i++){
+		if(tailX[i]==x && tailY[i]==y){
+			gameOver=true;
+		}
+	}
 	if(x==fruitX && y==fruitY){
 		
 		score+=10;
@@ -136,7 +142,7 @@ int main(){
 		Draw();
 		Input();
 		Logic();
-		//Sleep(10);
+		Sleep(10);
 	
 	}
 }
